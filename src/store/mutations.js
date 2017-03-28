@@ -1,9 +1,11 @@
-export const increment = state => {
-  state.count++;
-  state.history.push('increment');
+export const addBox = (state) => {
+  state.boxes++;
 };
 
-export const decrement = state => {
-  state.count--;
-  state.history.push('decrement');
+export const removeBox = (state) => {
+  state.boxes--;
+};
+
+export const addGridColumnValues = (state, { amount, unit }) => {
+  state.gridColumns.push({ amount, unit });
 };

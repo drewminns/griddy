@@ -27,9 +27,9 @@
     'block-spacing': [2, 'always'],
     'brace-style': [2, '1tbs', { 'allowSingleLine': true }],
     'camelcase': [2, { 'properties': 'always' }],
-    'comma-dangle': [1, {
+    'comma-dangle': [2, {
         "arrays": "never",
-        "objects": "always",
+        "objects": "only-multiline",
         "imports": "never",
         "exports": "never",
         "functions": "ignore",
