@@ -7,5 +7,5 @@ export const removeBox = (state) => {
 };
 
 export const addGridColumnValues = (state, { amount, unit }) => {
-  state.gridColumns.push({ amount, unit });
+  state.styles.gridTemplateColumns.push({ amount, unit });
 };

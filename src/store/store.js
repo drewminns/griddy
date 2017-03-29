@@ -8,22 +8,23 @@ Vue.use(Vuex);
 
 const state = {
   boxes: 6,
-  display: 'grid',
-  gridColumns: [
-    { amount: 1, unit: 'fr', },
-    { amount: 100, unit: 'px', },
-    { amount: 1, unit: 'fr', }
-  ],
-  gridRows: [
-    { amount: 2, unit: 'fr', },
-    { amount: 100, unit: 'px', }
-  ],
-  gridColumnGap: '10px',
-  gridRowGap: '20px',
-  justifyItems: 'stretch',
-  alignItems: 'stretch',
-  justifyContent: 'stretch',
-  alignContent: 'stretch',
+  styles: {
+    gridTemplateColumns: [
+      { amount: 1, unit: 'fr' },
+      { amount: 100, unit: 'px' },
+      { amount: 1, unit: 'fr' }
+    ],
+    gridTemplateRows: [
+      { amount: 2, unit: 'fr' },
+      { amount: 100, unit: 'px' }
+    ],
+    gridColumnGap: '10px',
+    gridRowGap: '20px',
+    justifyItems: 'stretch',
+    alignItems: 'stretch',
+    justifyContent: 'stretch',
+    alignContent: 'stretch',
+  }
 };
 
 const store = new Vuex.Store({

@@ -1,6 +1,6 @@
 <template lang="pug">
   div.preview
-    .grid__parent(:style="styles")
+    .grid__parent(:style="styleObj")
       .grid__item(v-for="item in $store.state.boxes") {{ item }}
 </template>
 
@@ -10,22 +10,8 @@ import { mapGetters } from 'vuex';
 export default {
   computed: {
     ...mapGetters([
-      'gridColumns',
-      'gridRows'
+      'styleObj'
     ]),
-    styles() {
-      return {
-        display: this.$store.state.display,
-        gridTemplateRows: this.gridRows,
-        gridTemplateColumns: this.gridColumns,
-        gridColumnGap: this.$store.state.gridColumnGap,
-        gridRowGap: this.$store.state.gridRowGap,
-        justifyItems: this.$store.state.justifyItems,
-        alignItems: this.$store.state.alignItems,
-        justifyContent: this.$store.state.justifyContent,
-        alignContent: this.$store.state.alignContent,
-      }
-    }
   }
 }
 </script>
@@ -35,6 +21,7 @@ export default {
 
   &__parent {
     width: 100%;
+    display: grid;
   }
 
   &__item {
