@@ -18,8 +18,14 @@ const state = {
       { amount: 2, unit: 'fr' },
       { amount: 100, unit: 'px' }
     ],
-    gridColumnGap: '10px',
-    gridRowGap: '20px',
+    gridColumnGap: {
+      amount: 10,
+      unit: 'px'
+    },
+    gridRowGap: {
+      amount: 20,
+      unit: 'px'
+    },
     justifyItems: 'stretch',
     alignItems: 'stretch',
     justifyContent: 'stretch',

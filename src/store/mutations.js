@@ -6,6 +6,18 @@ export const removeBox = (state) => {
   state.boxes--;
 };
 
-export const addGridColumnValues = (state, { amount, unit }) => {
-  state.styles.gridTemplateColumns.push({ amount, unit });
+export const addGridArrayValues = (state, { property, amount, unit }) => {
+  state.styles[property].push({ amount, unit });
+};
+
+export const removeGridArrayValues = (state, property) => {
+  state.styles[property].pop();
+};
+
+export const modifyPixelUnitVal = (state, { property, value }) => {
+  state.styles[property].amount = `${value}`;
+};
+
+export const modifyWordUnitVal = (state, { property, unit }) => {
+  state.styles[property].unit = `${unit}`;
 };

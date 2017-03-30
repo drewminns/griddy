@@ -6,6 +6,18 @@ export const removeBoxes = ({ commit }) => {
   commit('removeBox');
 };
 
-export const addGridColumnValues = ({ commit }, values) => {
-  commit('addGridColumnValues', values);
+export const addGridArrayValues = ({ commit }, values) => {
+  commit('addGridArrayValues', values);
+};
+
+export const removeGridArrayValues = ({ commit }, property) => {
+  commit('removeGridArrayValues', property);
+};
+
+export const modifyPixelUnitVal = ({ commit }, values) => {
+  commit('modifyPixelUnitVal', values);
+};
+
+export const modifyWordUnitVal = ({ commit }, values) => {
+  commit('modifyWordUnitVal', values);
 };
