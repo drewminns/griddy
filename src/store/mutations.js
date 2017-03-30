@@ -21,3 +21,7 @@ export const modifyPixelUnitVal = (state, { property, value }) => {
 export const modifyWordUnitVal = (state, { property, unit }) => {
   state.styles[property].unit = `${unit}`;
 };
+
+export const modifyStringValue = (state, { property, value }) => {
+  state.styles[property] = `${value}`;
+};

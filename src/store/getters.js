@@ -1,25 +1,8 @@
-function valuesToString (data) {
-  let stringVal = '';
-  data.forEach((val) => {
-    stringVal += `${val.amount}${val.unit} `;
-  });
-  return stringVal.trim();
-};
-
-function unRollString (val) {
-  const dashed = val.replace(/([A-Z])/g, function ($1) {
-    return '-' + $1.toLowerCase();
-  });
-  return dashed;
-}
-
-function unpackObject (val) {
-  let stringVal = '';
-  Object.keys(val).forEach((key) => {
-    stringVal += `${val[key]}`;
-  });
-  return stringVal;
-}
+import {
+  valuesToString,
+  unRollString,
+  unpackObject
+} from '../lib/utils';
 
 export const gridColumns = (state) => {
   return valuesToString(state.styles.gridTemplateColumns);
@@ -27,6 +10,14 @@ export const gridColumns = (state) => {
 
 export const gridRows = (state) => {
   return valuesToString(state.styles.gridTemplateRows);
+};
+
+export const gridColumnGapString = (state) => {
+  return unpackObject(state.styles.gridColumnGap);
+};
+
+export const gridRowGapString = (state) => {
+  return unpackObject(state.styles.gridRowGap);
 };
 
 /*

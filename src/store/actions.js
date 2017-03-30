@@ -21,3 +21,7 @@ export const modifyPixelUnitVal = ({ commit }, values) => {
 export const modifyWordUnitVal = ({ commit }, values) => {
   commit('modifyWordUnitVal', values);
 };
+
+export const modifyAlignJustifyVal = ({ commit }, value) => {
+  commit('modifyStringValue', value);
+};

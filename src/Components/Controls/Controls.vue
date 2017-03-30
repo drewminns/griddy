@@ -15,135 +15,80 @@
           @click="removeBoxes"
         )
           i.fa.fa-minus(aria-hidden="true")
+    // Grid Template Columns Field
     .control-field
-      .field
-        label.label Grid Template Columns
-      .field.has-addons
-        p.control
-          input(
-            class="input"
-            placeholder="1"
-            type="number"
-            min="1"
-            v-model.number="gridTemplateColumnsVal.amount"
-          )
-        p.control
-          span.select
-            select(v-model="gridTemplateColumnsVal.unit")
-              option(val="fr") fr
-              option(val="px") px
-        p.control
-          button(
-            class="button is-primary"
-            @click="addGridArrayValues(gridTemplateColumns)"
-          ) Add it
-      .field(v-if="gridColumns.length > 0")
-        p Current value
-          code grid-template-columns: {{ gridColumns }}
-        button(@click="removeGridArrayValues('gridTemplateColumns')") Remove last value
-      .field(v-else)
-        p.is-small Add a value above to apply to the grid
+      add-select-drop(
+        title="Grid Template Columns"
+        type="gridTemplateColumns"
+        v-bind:modelData="gridColumns"
+      )
+    // Grid Template Rows Field
     .control-field
-      .field
-        label.label Grid Template Rows
-      .field.has-addons
-        p.control
-          input(
-            class="input"
-            placeholder="1"
-            type="number"
-            min="1"
-            v-model.number="gridTemplateRowsVal.amount"
-          )
-        p.control
-          span.select
-            select(v-model="gridTemplateRowsVal.unit")
-              option(val="fr") fr
-              option(val="px") px
-        p.control
-          button(
-            class="button is-primary"
-            @click="addGridArrayValues(gridTemplateRows)"
-          ) Add it
-      .field(v-if="gridRows.length > 0")
-        p Current value
-          code grid-row-columns: {{ gridRows }}
-        button(@click="removeGridArrayValues('gridTemplateRows')") Remove last value
-      .field(v-else)
-        p.is-small Add a value above to apply to the grid
+      add-select-drop(
+        title="Grid Template Rows"
+        type="gridTemplateRows"
+        v-bind:modelData="gridRows"
+      )
+    // Grid Column Gap Field
     .control-field
-      .field
-        label.label Grid Column Gap
-      .field.has-addons
-        p.control
-          input(
-            class="input"
-            placeholder="10"
-            type="number"
-            min="1"
-            v-model.number="gridColumnGap.amount"
-            @change="modifyPixelUnitVal({ property: 'gridColumnGap', value: gridColumnGap.amount })"
-          )
-        p.control
-          span.select
-            select(
-              v-model="gridColumnGap.unit"
-              @change="modifyWordUnitVal({ property: 'gridColumnGap', unit: gridColumnGap.unit })"
-            )
-              option(val="px") px
-              option(val="%") %
-      .field(v-if="gridRows.length > 0")
-        p Current value
-          code grid-column-gap: {{ gridRows }}
-      .field(v-else)
-        p.is-small Add a value above to apply to the grid
+      selectDrop(
+        title="Grid Column Gap"
+        v-bind:string="gridColumnGapString"
+        v-bind:modelData="gridColumnGap"
+      )
+    // Grid Row Gap Field
     .control-field
-      .field
-        label.label Grid Row Gap
-      .field.has-addons
-        p.control
-          input(
-            class="input"
-            placeholder="10"
-            type="number"
-            min="1"
-            v-model.number="gridRowGap.amount"
-            @change="modifyPixelUnitVal({ property: 'gridRowGap', value: gridRowGap.amount })"
-          )
-        p.control
-          span.select
-            select(
-              v-model="gridRowGap.unit"
-              @change="modifyWordUnitVal({ property: 'gridRowGap', unit: gridRowGap.unit })"
-            )
-              option(val="px") px
-              option(val="%") %
-      .field(v-if="gridRows.length > 0")
-        p Current value
-          code grid-column-gap: {{ gridRows }}
-      .field(v-else)
-        p.is-small Add a value above to apply to the grid
+      selectDrop(
+        title="Grid Row Gap"
+        v-bind:string="gridRowGapString"
+        v-bind:modelData="gridRowGap"
+      )
+    // Justify Items Field
+    .control-field
+      align-justify(
+        title="Justify Items"
+        property="justifyItems"
+      )
+    // Align Items Field
+    .control-field
+      align-justify(
+        title="Align Items"
+        property="alignItems"
+      )
+    // Justify Content Field
+    .control-field
+      align-justify(
+        title="Justify Content"
+        v-bind:show-content="true"
+        property="justifyContent"
+      )
+    // Align Content Field
+    .control-field
+      align-justify(
+        title="Align Content"
+        v-bind:show-content="true"
+        property="alignContent"
+      )
 </template>
 
 <script>
 import { mapActions, mapGetters } from 'vuex';
+import AddSelectDrop from './AddSelect.vue';
+import SelectDrop from './SelectDrop.vue';
+import AlignJustify from './AlignJustify.vue';
+
 export default {
-  data() {
-    return {
-      gridTemplateColumnsVal: {
-        amount: '1',
-        unit: 'fr'
-      },
-      gridTemplateRowsVal: {
-        amount: '1',
-        unit: 'fr'
-      },
-    }
+  components: {
+    addSelectDrop: AddSelectDrop,
+    selectDrop: SelectDrop,
+    alignJustify: AlignJustify,
   },
   computed: {
     ...mapGetters([
       'gridColumns',
-      'gridRows'
+      'gridRows',
+      'gridColumnGapString',
+      'gridRowGapString',
     ]),
     gridColumnGap() {
       return {
@@ -159,29 +104,11 @@ export default {
         unit: this.$store.state.styles.gridRowGap.unit
       }
     },
-    gridTemplateColumns: function () {
-      return {
-        property: 'gridTemplateColumns',
-        amount: this.gridTemplateColumnsVal.amount,
-        unit: this.gridTemplateColumnsVal.unit
-      }
-    },
-    gridTemplateRows: function () {
-      return {
-        property: 'gridTemplateRows',
-        amount: this.gridTemplateRowsVal.amount,
-        unit: this.gridTemplateRowsVal.unit
-      }
-    }
   },
   methods: {
     ...mapActions([
       'addBoxes',
-      'removeBoxes',
-      'addGridArrayValues',
-      'removeGridArrayValues',
-      'modifyPixelUnitVal',
-      'modifyWordUnitVal'
+      'removeBoxes'
     ])
   }
 }

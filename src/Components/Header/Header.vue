@@ -3,7 +3,7 @@
     nav.nav.has-shadow
       .nav-center
         .nav-item
-          h1.title Farts
+          h1.title Griddy
 </template>
 
 <script>
