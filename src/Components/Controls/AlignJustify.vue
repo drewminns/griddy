@@ -34,11 +34,14 @@ export default {
     }
   },
   methods: {
+    ...mapActions([
+      'modifyAlignJustifyVal'
+    ]),
     updateProperty(e) {
-      this.$store.commit('modifyStringValue', {
+      this.modifyAlignJustifyVal({
         property: this.property,
         value: e.target.value
-      });
+      })
     }
   }
 }

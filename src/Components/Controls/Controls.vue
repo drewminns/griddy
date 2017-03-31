@@ -1,9 +1,8 @@
-<!-- This is really ugly. It needs to be refactored into separate components -->
 <template lang="pug">
   div.control__section
     .control-field
       .field
-        label.label Add/Remove elements within the grid
+        label.label {{ copy.addRemoveElements }}
       .field
         button(
           class="button is-success input-button"
@@ -18,54 +17,54 @@
     // Grid Template Columns Field
     .control-field
       add-select-drop(
-        title="Grid Template Columns"
+        v-bind:text="copy.controls.gridTemplateColumns"
         type="gridTemplateColumns"
         v-bind:modelData="gridColumns"
       )
     // Grid Template Rows Field
     .control-field
       add-select-drop(
-        title="Grid Template Rows"
+        v-bind:text="copy.controls.gridTemplateRows"
         type="gridTemplateRows"
         v-bind:modelData="gridRows"
       )
-    // Grid Column Gap Field
     .control-field
-      selectDrop(
-        title="Grid Column Gap"
-        v-bind:string="gridColumnGapString"
-        v-bind:modelData="gridColumnGap"
-      )
-    // Grid Row Gap Field
-    .control-field
-      selectDrop(
-        title="Grid Row Gap"
-        v-bind:string="gridRowGapString"
-        v-bind:modelData="gridRowGap"
-      )
+      .columns
+        .column
+          selectDrop(
+            v-bind:title="copy.controls.gridGapColumn.title"
+            v-bind:string="gridColumnGapString"
+            v-bind:modelData="gridColumnGap"
+          )
+        .column
+          selectDrop(
+            v-bind:title="copy.controls.gridGapRow.title"
+            v-bind:string="gridRowGapString"
+            v-bind:modelData="gridRowGap"
+          )
     // Justify Items Field
     .control-field
       align-justify(
-        title="Justify Items"
+        v-bind:title="copy.controls.justifyItems.title"
         property="justifyItems"
       )
     // Align Items Field
     .control-field
       align-justify(
-        title="Align Items"
+        v-bind:title="copy.controls.alignItems.title"
         property="alignItems"
       )
     // Justify Content Field
     .control-field
       align-justify(
-        title="Justify Content"
+        v-bind:title="copy.controls.justifyContent.title"
         v-bind:show-content="true"
         property="justifyContent"
       )
     // Align Content Field
     .control-field
       align-justify(
-        title="Align Content"
+        v-bind:title="copy.controls.alignContent.title"
         v-bind:show-content="true"
         property="alignContent"
       )
@@ -73,11 +72,18 @@
 
 <script>
 import { mapActions, mapGetters } from 'vuex';
-import AddSelectDrop from './AddSelect.vue';
+import copy from '../../lib/copy';
+
+import AddSelectDrop from './AddSelectDrop.vue';
 import SelectDrop from './SelectDrop.vue';
 import AlignJustify from './AlignJustify.vue';
 
 export default {
+  data() {
+    return {
+      copy: copy
+    }
+  },
   components: {
     addSelectDrop: AddSelectDrop,
     selectDrop: SelectDrop,

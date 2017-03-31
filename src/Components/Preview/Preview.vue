@@ -20,15 +20,22 @@ export default {
 .grid {
 
   &__parent {
+    position: relative;
+    height: 100%;
     width: 100%;
     display: grid;
+    padding: 10px;
   }
 
   &__item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: #72d0eb;
     color: #fff;
     padding: 20px;
     font-size: 150%;
+    border-radius: 5px;
   }
 }
 

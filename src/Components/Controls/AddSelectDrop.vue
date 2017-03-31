@@ -1,7 +1,8 @@
 <template lang="pug">
   div
     .field
-      label.label {{ title }}
+      label.label {{ text.title }}
+      p {{ text.description }}
     .field.has-addons
       p.control
         input(
@@ -9,6 +10,7 @@
           placeholder="1"
           type="number"
           min="1"
+          v-bind:disabled="gridTemplateVal.unit === 'auto'"
           v-model.number="gridTemplateVal.amount"
         )
       p.control
@@ -16,14 +18,15 @@
           select(v-model="gridTemplateVal.unit")
             option(val="fr") fr
             option(val="px") px
+            option(val="auto") auto
       p.control
         button(
           class="button is-primary"
-          @click="addGridArrayValues({ property: type, amount: gridTemplateVal.amount, unit: gridTemplateVal.unit })"
-        ) Add it
+          @click="addGridArrayValues(valueToSend)"
+        ) {{ copy.addIt }}
     .field(v-if="modelData.length > 0")
-      p Current value
-        code grid-template-columns: {{ modelData }}
+      p {{ copy.currentValue }}
+        code {{ text.selector }}: {{ modelData }}
       button(
         @click="removeGridArrayValues(type)"
         class="button is-danger is-small"
@@ -31,20 +34,21 @@
         span.icon.is-small
           i.fa.fa-times(aria-hidden="true")
     .field(v-else)
-      p.is-small Add a value above to apply to the grid
+      p.is-small {{ copy.addAValue }}
 </template>
 
 <script>
 import { mapActions, mapGetters } from 'vuex';
-
+import copy from '../../lib/copy';
 export default {
   props: {
-    title: String,
+    text: Object,
     type: String,
     modelData: String
   },
   data() {
     return {
+      copy,
       gridTemplateVal: {
         amount: '1',
         unit: 'fr'
@@ -54,7 +58,14 @@ export default {
   computed: {
     ...mapGetters([
       'gridColumns',
-    ])
+    ]),
+    valueToSend: function() {
+      return {
+        property: this.type,
+        amount: (this.gridTemplateVal.unit !== 'auto' ? this.gridTemplateVal.amount : this.gridTemplateVal.unit),
+        unit: (this.gridTemplateVal.unit !== 'auto' ? this.gridTemplateVal.unit : '')
+      }
+    }
   },
   methods: {
     ...mapActions([
