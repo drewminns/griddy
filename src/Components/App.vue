@@ -2,12 +2,12 @@
   div
     app-header
     section.app-container
-      div.columns
-        .column.is-5
+      section.columns
+        .column.is-5.scrollable
           app-controls
         .column.result.is-7
-          app-preview.result__item
-          app-code.result__item
+          app-preview.result__preview
+          app-code.result__code
 </template>
 
 <script>
@@ -28,8 +28,16 @@ export default {
 
 <style lang="scss">
 .app-container {
-  height: 100vh;
+  height: calc(100vh - 52px);
   padding-top: 1rem;
+
+  & > .columns {
+    height: 100%;
+  }
+}
+
+.scrollable {
+  overflow-y: auto;
 }
 
 
@@ -37,8 +45,12 @@ export default {
   display: flex;
   flex-direction: column;
 
-  &__item {
-    flex: 1 0 50%;
+  &__preview {
+    flex: 1 0 70%;
+  }
+
+  &__code {
+    flex: 1 0 30%;
   }
 }
 

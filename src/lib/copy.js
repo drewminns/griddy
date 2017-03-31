@@ -9,20 +9,20 @@ export default {
     gridTemplateColumns: {
       title: 'Grid Template Columns',
       selector: 'grid-template-columns',
-      description: 'grid-template-columns',
+      description: 'grid-template-columns defines how the content will be divided into  vertical columns and how they will be sized in relation to each other.',
     },
     gridTemplateRows: {
       title: 'Grid Template Rows',
       selector: 'grid-template-rows',
-      description: 'Grid Template Rows description'
+      description: 'grid-template-rows defines how the content will be divided into  horizontal columns and how they will be sized in relation to each other.'
     },
     gridGapColumn: {
       title: 'Grid Column Gap',
-      description: 'Grid Column Gap description'
+      description: 'Defines the space between all Vertical columns'
     },
     gridGapRow: {
       title: 'Grid Row Gap',
-      description: 'Grid Row Gap description'
+      description: 'Defines the space between all Horizontal columns'
     },
     justifyItems: {
       title: 'Justify Items',

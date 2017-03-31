@@ -32,42 +32,43 @@
       .columns
         .column
           selectDrop(
-            v-bind:title="copy.controls.gridGapColumn.title"
+            v-bind:text="copy.controls.gridGapColumn"
             v-bind:string="gridColumnGapString"
             v-bind:modelData="gridColumnGap"
           )
         .column
           selectDrop(
-            v-bind:title="copy.controls.gridGapRow.title"
+            v-bind:text="copy.controls.gridGapRow"
             v-bind:string="gridRowGapString"
             v-bind:modelData="gridRowGap"
           )
-    // Justify Items Field
     .control-field
-      align-justify(
-        v-bind:title="copy.controls.justifyItems.title"
-        property="justifyItems"
-      )
-    // Align Items Field
-    .control-field
-      align-justify(
-        v-bind:title="copy.controls.alignItems.title"
-        property="alignItems"
-      )
+      .columns
+        .column
+          align-justify(
+            v-bind:title="copy.controls.justifyItems.title"
+            property="justifyItems"
+          )
+        .column
+          align-justify(
+            v-bind:title="copy.controls.alignItems.title"
+            property="alignItems"
+          )
     // Justify Content Field
     .control-field
-      align-justify(
-        v-bind:title="copy.controls.justifyContent.title"
-        v-bind:show-content="true"
-        property="justifyContent"
-      )
-    // Align Content Field
-    .control-field
-      align-justify(
-        v-bind:title="copy.controls.alignContent.title"
-        v-bind:show-content="true"
-        property="alignContent"
-      )
+      .columns
+        .column
+          align-justify(
+            v-bind:title="copy.controls.justifyContent.title"
+            v-bind:show-content="true"
+            property="justifyContent"
+          )
+        .column
+          align-justify(
+            v-bind:title="copy.controls.alignContent.title"
+            v-bind:show-content="true"
+            property="alignContent"
+          )
 </template>
 
 <script>

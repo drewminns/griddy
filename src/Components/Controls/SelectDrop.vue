@@ -1,7 +1,8 @@
 <template lang="pug">
   div
     .field
-      label.label {{ title }}
+      label.label {{ text.title }}
+      p {{ text.description }}
     .field.has-addons
       p.control
         input(
@@ -20,11 +21,6 @@
           )
             option(val="px") px
             option(val="%") %
-    //- .field(v-if="string.length > 0")
-    //-   p Current value
-    //-     code grid-column-gap: {{ string }}
-    //- .field(v-else)
-    //-   p.is-small Add a value above to apply to the grid
 </template>
 
 <script>
@@ -33,7 +29,7 @@ import { valuesToString } from '../../lib/utils';
 
 export default {
   props: {
-    title: String,
+    text: Object,
     string: String,
     modelData: Object,
   },
