@@ -1,8 +1,11 @@
 <template lang="pug">
   div.control__section
     .control-field
+      h2.title.is-3 CSS Grid
+      p Use this tool to help discover all the properties and values of the CSS Grid
+    .control-field
       .field
-        label.label {{ copy.addRemoveElements }}
+        h2.title.is-4 {{ copy.addRemoveElements }}
       .field
         button(
           class="button is-success input-button"
@@ -19,14 +22,16 @@
       add-select-drop(
         v-bind:text="copy.controls.gridTemplateColumns"
         type="gridTemplateColumns"
-        v-bind:modelData="gridColumns"
+        v-bind:modelData="gridColumnTemplateData"
+        v-bind:modelString="gridColumns"
       )
     // Grid Template Rows Field
     .control-field
       add-select-drop(
         v-bind:text="copy.controls.gridTemplateRows"
         type="gridTemplateRows"
-        v-bind:modelData="gridRows"
+        v-bind:modelData="gridRowTemplateData"
+        v-bind:modelString="gridRows"
       )
     .control-field
       .columns
@@ -97,6 +102,12 @@ export default {
       'gridColumnGapString',
       'gridRowGapString',
     ]),
+    gridColumnTemplateData() {
+      return this.$store.state.styles.gridTemplateColumns
+    },
+    gridRowTemplateData() {
+      return this.$store.state.styles.gridTemplateRows
+    },
     gridColumnGap() {
       return {
         property: 'gridColumnGap',
@@ -123,7 +134,16 @@ export default {
 
 <style lang="scss" scoped>
 .control__section {
-  padding: 25px;
+  padding: 25px 10px;
+  
+}
+
+.control-field {
+  border-top: 1px solid #dbdbdb;
+
+  &:first-child {
+    border-top: 0;
+  }
 }
 
 .input-button:first-child {
@@ -131,8 +151,7 @@ export default {
 }
 
 .control-field {
-  border-top: 1px solid lightgrey;
-  margin-top: .75rem;
-  padding: .75rem;
+  padding: 2rem;
+
 }
 </style>

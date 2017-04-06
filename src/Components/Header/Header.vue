@@ -18,5 +18,12 @@ export default {
 }
 </script>
 
-<style lang="css">
+<style lang="scss">
+  .nav {
+    background-color: hsl(0, 0%, 7%);
+
+    .title {
+      color: white;
+    }
+  }
 </style>

@@ -11,7 +11,7 @@ export const addGridArrayValues = (state, { property, amount, unit }) => {
 };
 
 export const removeGridArrayValues = (state, property) => {
-  state.styles[property].pop();
+  state.styles[property.type].splice(property.index, 1);
 };
 
 export const modifyPixelUnitVal = (state, { property, value }) => {
@@ -20,6 +20,11 @@ export const modifyPixelUnitVal = (state, { property, value }) => {
 
 export const modifyWordUnitVal = (state, { property, unit }) => {
   state.styles[property].unit = `${unit}`;
+};
+
+export const modifyArrayVal = (state, { property, val, unit, index }) => {
+  console.log(property, val, unit, index);
+  state.styles[property][index][val] = `${unit}`;
 };
 
 export const modifyStringValue = (state, { property, value }) => {

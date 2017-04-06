@@ -1,7 +1,10 @@
 <template lang="pug">
   div.preview
     .grid__parent(:style="styleObj")
-      .grid__item(v-for="item in $store.state.boxes") {{ item }}
+      .grid__item(
+        v-for="item in $store.state.boxes"
+      )
+        p {{ item }}
 </template>
 
 <script>
@@ -28,14 +31,12 @@ export default {
   }
 
   &__item {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #72d0eb;
+    background: blue;
     color: #fff;
     padding: 20px;
-    font-size: 150%;
+    font-size: 11px;
     border-radius: 5px;
+    // overflow: hidden;
   }
 }
 

@@ -1,9 +1,9 @@
 export default {
   title: 'Griddy',
   currentValue: 'Current Value',
-  addIt: 'Add it',
+  addIt: 'Add another value',
   addAValue: 'Add a value above to apply to the grid',
-  addRemoveElements: 'Add/Remove elements within the grid',
+  addRemoveElements: 'Add or Remove elements within the grid',
   controls: {
     heading: 'Add/Remove elements within the grid',
     gridTemplateColumns: {

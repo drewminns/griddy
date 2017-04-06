@@ -3,9 +3,9 @@
     app-header
     section.app-container
       section.columns
-        .column.is-5.scrollable
+        .column.is-4.scrollable
           app-controls
-        .column.result.is-7
+        .column.result.is-8
           app-preview.result__preview
           app-code.result__code
 </template>
@@ -26,20 +26,22 @@ export default {
 }
 </script>
 
+
+<style src="../assets/hint.css"></style>
 <style lang="scss">
 .app-container {
   height: calc(100vh - 52px);
-  padding-top: 1rem;
 
   & > .columns {
     height: 100%;
+    margin-top: 0;
   }
 }
 
 .scrollable {
   overflow-y: auto;
+  border-right: 1px solid #ededed;
 }
-
 
 .result {
   display: flex;

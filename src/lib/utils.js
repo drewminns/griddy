@@ -1,7 +1,11 @@
 export function valuesToString (data) {
   let stringVal = '';
   data.forEach((val) => {
-    stringVal += `${val.amount}${val.unit} `;
+    if (val.unit === 'auto') {
+      stringVal += `${val.unit} `;
+    } else {
+      stringVal += `${val.amount}${val.unit} `;
+    }
   });
   return stringVal.trim();
 };
