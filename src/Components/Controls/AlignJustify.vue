@@ -2,9 +2,10 @@
   div
     .field
       label.label {{ title }}
+      p(v-html="text")
     .field
-      p.control
-        span.select
+      p.control.is-expanded
+        span.select.is-fullwidth
           select(
             v-model="modelVal"
             @change="updateProperty"
@@ -26,7 +27,8 @@ export default {
     title: String,
     property: String,
     belongsTo: String,
-    showContent: Boolean
+    showContent: Boolean,
+    text: String
   },
   computed: {
     modelVal: function() {

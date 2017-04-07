@@ -1,24 +1,21 @@
 <template lang="pug">
   div
-    app-header
     section.app-container
       section.columns
-        .column.is-4.scrollable
+        .column.is-4-desktop.is-6-tablet.scrollable
           app-controls
-        .column.result.is-8
+        .column.result.is-8-desktop.is-6-tablet
           app-preview.result__preview
           app-code.result__code
 </template>
 
 <script>
-import appHeader from './Header/Header.vue';
 import appControls from './Controls/Controls.vue';
 import appPreview from './Preview/Preview.vue';
 import appCode from './Code/Code.vue';
 
 export default {
   components: {
-    appHeader,
     appControls,
     appPreview,
     appCode,
@@ -27,10 +24,14 @@ export default {
 </script>
 
 
+<style src="../assets/bulma.min.css"></style>
 <style src="../assets/hint.css"></style>
 <style lang="scss">
+html {
+  font-size: 15px;
+}
+
 .app-container {
-  height: calc(100vh - 52px);
 
   & > .columns {
     height: 100%;
@@ -39,21 +40,32 @@ export default {
 }
 
 .scrollable {
-  overflow-y: auto;
+  height: 100vh;
   border-right: 1px solid #ededed;
+  box-shadow: 2px 0 10px rgba(10, 10, 10, 0.1);
+  padding: 0;
 }
 
 .result {
   display: flex;
   flex-direction: column;
+  padding: 25px;
+  height: 100vh;
 
   &__preview {
-    flex: 1 0 70%;
+    height: 80%;
   }
 
   &__code {
-    flex: 1 0 30%;
+    height: 20%;
+    margin-top: 10px;
+    overflow-y: auto;
+    box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);
   }
+}
+
+.select::after {
+  z-index: 2 !important;
 }
 
 </style>

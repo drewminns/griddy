@@ -7,11 +7,36 @@ import * as mutations from './mutations';
 Vue.use(Vuex);
 
 const state = {
-  boxes: 6,
+  boxes: [
+    {
+      gridColumnStart: 'auto',
+      gridColumnEnd: 'auto',
+      gridRowStart: 'auto',
+      gridRowEnd: 'auto'
+    },
+    {
+      gridColumnStart: 'auto',
+      gridColumnEnd: 'auto',
+      gridRowStart: 'auto',
+      gridRowEnd: 'auto'
+    },
+    {
+      gridColumnStart: 'auto',
+      gridColumnEnd: 'auto',
+      gridRowStart: 'auto',
+      gridRowEnd: 'auto'
+    },
+    {
+      gridColumnStart: 'auto',
+      gridColumnEnd: 'auto',
+      gridRowStart: 'auto',
+      gridRowEnd: 'auto'
+    }
+  ],
   styles: {
     gridTemplateColumns: [
       { amount: 1, unit: 'fr' },
-      { amount: 100, unit: 'px' },
+      { amount: 200, unit: 'px' },
       { amount: 1, unit: 'fr' }
     ],
     gridTemplateRows: [
@@ -19,7 +44,7 @@ const state = {
       { amount: 100, unit: 'px' }
     ],
     gridColumnGap: {
-      amount: 10,
+      amount: 20,
       unit: 'px'
     },
     gridRowGap: {

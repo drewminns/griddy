@@ -1,7 +1,11 @@
 export default {
   title: 'Griddy',
+  intro: 'Learn the CSS Grid Spec!',
   currentValue: 'Current Value',
-  addIt: 'Add another value',
+  addIt: 'Add another',
+  addA: 'Add a',
+  column: 'column',
+  row: 'row',
   addAValue: 'Add a value above to apply to the grid',
   addRemoveElements: 'Add or Remove elements within the grid',
   controls: {
@@ -9,24 +13,24 @@ export default {
     gridTemplateColumns: {
       title: 'Grid Template Columns',
       selector: 'grid-template-columns',
-      description: 'grid-template-columns defines how the content will be divided into  vertical columns and how they will be sized in relation to each other.',
+      description: 'grid-template-columns defines how the elements will be divided into <strong>vertical columns</strong> and how they will be sized in relation to each other.',
     },
     gridTemplateRows: {
       title: 'Grid Template Rows',
       selector: 'grid-template-rows',
-      description: 'grid-template-rows defines how the content will be divided into  horizontal columns and how they will be sized in relation to each other.'
+      description: 'grid-template-rows defines how the elements will be divided into <strong>horizontal rows</strong> and how they will be sized in relation to each other.'
     },
     gridGapColumn: {
       title: 'Grid Column Gap',
-      description: 'Defines the space between all Vertical columns'
+      description: 'Defines the space <strong>between</strong> all Vertical columns.'
     },
     gridGapRow: {
       title: 'Grid Row Gap',
-      description: 'Defines the space between all Horizontal columns'
+      description: 'Defines the space <strong>between</strong> all Horizontal rows.'
     },
     justifyItems: {
       title: 'Justify Items',
-      description: 'Justify Items Description'
+      description: 'Defines how the items will be aligned <strong>horizontally</strong> in each column.'
     },
     justifyContent: {
       title: 'Justify Content',
@@ -34,11 +38,11 @@ export default {
     },
     alignItems: {
       title: 'Align Items',
-      description: 'Align Items Description'
+      description: 'Defines how the items will be aligned <strong>vertically</strong> in each row.'
     },
     alignContent: {
-      title: 'Align Items',
-      description: 'Align Items Description'
+      title: 'Align Content',
+      description: 'Align Content Description'
     }
   }
 };

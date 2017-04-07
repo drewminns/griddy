@@ -1,9 +1,14 @@
 export const addBox = (state) => {
-  state.boxes++;
+  state.boxes.push({
+    gridColumnStart: 'auto',
+    gridColumnEnd: 'auto',
+    gridRowStart: 'auto',
+    gridRowEnd: 'auto'
+  });
 };
 
 export const removeBox = (state) => {
-  state.boxes--;
+  state.boxes.pop();
 };
 
 export const addGridArrayValues = (state, { property, amount, unit }) => {

@@ -2,8 +2,9 @@
   div
     .field
       h2.title.is-4 {{ text.title }}
-      p {{ text.description }}
+      p(v-html="text.description")
     .field.has-addons(v-for="(item, index) in modelData")
+      p.control__text {{ typeText }} {{ index + 1 }}
       p.control
         label.hidden(v-bind:for="index + type") {{ `${text.title} ${index} amount` }}
         input(
@@ -27,25 +28,30 @@
           )
             option(val="fr") fr
             option(val="px") px
+            option(val="%") %
             option(val="auto") auto
       p.control
         button(
           @click="removeGridArrayValues({ type, index })"
-          class="button hint--right"
+          class="button hint--top is-danger"
           aria-label="Delete property"
         )
-          i.fa.fa-times(aria-hidden="true")
+          span.icon.is-small
+            i.fa.fa-times(aria-hidden="true")
     p.control
       button(
-        class="button is-info"
+        v-bind:class="{ button: true, 'is-info': modelData.length > 0, 'is-success' : modelData.length === 0 }"
         @click="addGridArrayValues(valueToSend)"
-      ) {{ copy.addIt }}
-       i.fa.fa-icon
-    .field(v-if="modelData.length > 0")
+      )
+        span.icon.is-small
+          i.fa.fa-plus
+        span(v-if="modelData.length > 0") {{ copy.addIt }} {{ featuredText }}
+        span(v-else) {{ copy.addA }} {{ featuredText }}
+    .field.field__detail(v-if="modelData.length > 0")
       p {{ copy.currentValue }}:
       p
         code {{ text.selector }}: {{ modelString }}
-    .field(v-else)
+    .field.field__detail(v-else)
       p.is-small {{ copy.addAValue }}
 </template>
 
@@ -58,7 +64,8 @@ export default {
     text: Object,
     type: String,
     modelString: String,
-    modelData: Array
+    modelData: Array,
+    featuredText: String
   },
   data() {
     return {
@@ -70,6 +77,9 @@ export default {
     }
   },
   computed: {
+    typeText: function() {
+      return this.featuredText[0].toUpperCase() + this.featuredText.substring(1);
+    },
     valueToSend: function() {
       return {
         property: this.type,
@@ -89,9 +99,23 @@ export default {
 </script>
 
 <style lang="scss">
+
+  .field.has-addons {
+    align-items: center;
+  }
+
   label.hidden {
     font-size: 0;
     position: absolute;
+  }
+
+  .control__text {
+    margin-right: 1rem;
+    min-width: 75px;
+  }
+
+  .field__detail {
+    margin-top: 1rem;
   }
 
 </style>

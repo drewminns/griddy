@@ -23,15 +23,18 @@ export default {
 
 <style lang="scss">
   .code {
+    overflow-y: hidden;
+
     &__display {
       height: 100%;
       counter-reset: line;
       padding: 10px;
+      overflow-y: auto;
     }
 
     &__lang {
       padding: 10px 0;
-      font-size: 1rem;
+      font-size: .8rem;
     }
   }
 

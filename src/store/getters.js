@@ -49,7 +49,7 @@ export const styleString = (state) => {
   Object.keys(state.styles).forEach((key, index) => {
     if (Array.isArray(state.styles[key]) && state.styles[key].length > 0) {
       styles += `    ${unRollString(key)}: ${valuesToString(state.styles[key])};\n`;
-    } else if (typeof state.styles[key] === 'object') {
+    } else if (!Array.isArray(state.styles[key])) {
       styles += `    ${unRollString(key)}: ${unpackObject(state.styles[key])}\n`;
     } else if (!Array.isArray(state.styles[key]) && state.styles[key] !== null) {
       styles += `    ${unRollString(key)}: ${state.styles[key]};\n`;

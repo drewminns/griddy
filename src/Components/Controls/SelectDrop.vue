@@ -2,9 +2,9 @@
   div
     .field
       label.label {{ text.title }}
-      p {{ text.description }}
+      p(v-html="text.description")
     .field.has-addons
-      p.control
+      p.control.is-expanded
         input(
           class="input"
           placeholder="10"
