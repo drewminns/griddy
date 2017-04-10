@@ -34,7 +34,7 @@ export default {
 
     &__lang {
       padding: 10px 0;
-      font-size: .8rem;
+      font-size: 1rem;
     }
   }
 

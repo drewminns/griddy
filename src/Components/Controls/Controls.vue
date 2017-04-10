@@ -61,21 +61,21 @@
           v-bind:text="copy.controls.alignItems.description"
           property="alignItems"
         )
-      // Justify Content Field
-      .control-field
-        align-justify(
-          v-bind:title="copy.controls.justifyContent.title"
-          v-bind:text="copy.controls.justifyContent.description"
-          v-bind:show-content="true"
-          property="justifyContent"
-        )
-      .control-field
-        align-justify(
-          v-bind:title="copy.controls.alignContent.title"
-          v-bind:text="copy.controls.alignContent.description"
-          v-bind:show-content="true"
-          property="alignContent"
-        )
+      //- // Justify Content Field
+      //- .control-field
+      //-   align-justify(
+      //-     v-bind:title="copy.controls.justifyContent.title"
+      //-     v-bind:text="copy.controls.justifyContent.description"
+      //-     v-bind:show-content="true"
+      //-     property="justifyContent"
+      //-   )
+      //- .control-field
+      //-   align-justify(
+      //-     v-bind:title="copy.controls.alignContent.title"
+      //-     v-bind:text="copy.controls.alignContent.description"
+      //-     v-bind:show-content="true"
+      //-     property="alignContent"
+      //-   )
 </template>
 
 <script>

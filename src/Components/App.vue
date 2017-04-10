@@ -9,13 +9,17 @@
             .description
               p Learn the CSS Grid!
           .meta
-            p.is-1
+            p
               |Follow me
               | <a href="http://twitter.com/drewisthe">@drewisthe</a>
             p
               a.twitter-share-button(
-                href="https://twitter.com/intent/tweet?text=Hello%20world"
-              ) Share
+                href="https://twitter.com/intent/tweet"
+                data-size="large"
+                data-text="I'm learning about the CSS Grid spec with Griddy!"
+                data-url="http://griddy.io"
+                data-show-count="false"
+              ) Share Griddy
         .column.is-3-desktop.is-3-tablet.scrollable
           app-controls
         .column.result.is-7-desktop.is-6-tablet
@@ -94,6 +98,10 @@ html {
     }
   }
 
+  .meta p {
+    margin-bottom: 10px;
+  }
+
 }
 
 
@@ -112,11 +120,11 @@ html {
   height: 100vh;
 
   &__preview {
-    height: 70%;
+    height: 75%;
   }
 
   &__code {
-    height: 30%;
+    height: 25%;
     margin-top: 10px;
     overflow-y: auto;
     box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);

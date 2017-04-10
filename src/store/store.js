@@ -53,8 +53,8 @@ const state = {
     },
     justifyItems: 'stretch',
     alignItems: 'stretch',
-    justifyContent: 'stretch',
-    alignContent: 'stretch',
+    // justifyContent: 'stretch',
+    // alignContent: 'stretch',
   }
 };
 
