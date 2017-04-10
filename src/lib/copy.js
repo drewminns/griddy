@@ -22,11 +22,11 @@ export default {
     },
     gridGapColumn: {
       title: 'Grid Column Gap',
-      description: 'Defines the space <strong>between</strong> all Vertical columns.'
+      description: 'Defines the horizontal space <strong>between</strong> all columns.'
     },
     gridGapRow: {
       title: 'Grid Row Gap',
-      description: 'Defines the space <strong>between</strong> all Horizontal rows.'
+      description: 'Defines the vertical space <strong>between</strong> all rows.'
     },
     justifyItems: {
       title: 'Justify Items',

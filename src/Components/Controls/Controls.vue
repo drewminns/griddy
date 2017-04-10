@@ -1,9 +1,5 @@
 <template lang="pug">
   div.control__section
-    header.header
-      .hero.is-info
-        h1.title {{ copy.title }}
-        h2.subtitle {{ copy.intro }}
     .control__inputs
       .control-field
         .field
@@ -161,7 +157,7 @@ header.header {
 
 .control-field {
   border-top: 1px solid #dbdbdb;
-  padding: 2rem !important;
+  padding: 2.5rem !important;
 
   &:first-child {
     border-top: 0;
@@ -175,5 +171,11 @@ header.header {
 .control-field {
   padding: 2rem 1rem;
 
+}
+
+@media (max-width: 767px) {
+  .control__section {
+    height: auto;
+  }
 }
 </style>
