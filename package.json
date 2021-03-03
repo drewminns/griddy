@@ -28,7 +28,7 @@
     "file-loader": "^0.10.1",
     "html-webpack-plugin": "^2.28.0",
     "node-sass": "^4.5.1",
-    "pug": "^2.0.0-beta11",
+    "pug": "^3.0.1",
     "sass-loader": "^6.0.3",
     "scss-loader": "0.0.1",
     "vue-html-loader": "^1.2.4",
